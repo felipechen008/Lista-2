@@ -1,0 +1,11 @@
+a = 0
+b = 1
+c = 2
+mediador = 0
+while c<=4000000:
+    if b%2==1:
+        a=a+b
+    mediador = c
+    c = b+c
+    b = mediador
+print(a)
