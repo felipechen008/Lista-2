@@ -1,0 +1,60 @@
+a = True
+while a:
+    print("Se quiser soma de vetores, digite 1")
+    print("Se quiser subtração de vetores, digite -1")
+    print("Se quise sair do programa, digite 0")
+    b = int(input())
+    if b==0:
+        a = False;
+    if b==1:
+        c = int(input("Digite a dimensão dos vetores que queira somar: "))
+        while c<=0:
+            print("Opção inválida")
+            c = int(input("Digite a dimensão dos vetores que queira somar: "))
+        P = []
+        Q = []
+        R = []
+        for i in range (0,c,1):
+            print("Digite a", i+1, "ª coordenada do primeiro vetor: ", end="")
+            d = int(input())
+            P.append(d)
+        for i in range (0,c,1):
+            print("Digite a", i+1, "ª coordenada do primeiro vetor: ", end="")
+            d = int(input())
+            Q.append(d)
+        print("O vetor resultante é (", end="")
+        for i in range(0, c-1, 1):
+            R.append(P[i] + Q[i])
+            print(R[i], ",", end="")
+        R.append(P[c-1] + Q[c-1])
+        print(R[c-1], ")")
+        P = []
+        Q = []
+        R = []
+    if b==-1:
+        c = int(input("Digite a dimensão dos vetores que queira subtrair: "))
+        while c<0:
+            print("Opção inválida")
+            c = int(input("Digite a dimensão dos vetores que queira somar: "))
+        P = []
+        Q = []
+        R = []
+        for i in range (0,c,1):
+            print("Digite a", i+1, "ª coordenada do primeiro vetor: ", end="")
+            d = int(input())
+            P.append(d)
+        for i in range (0,c,1):
+            print("Digite a", i+1, "ª coordenada do primeiro vetor: ", end="")
+            d = int(input())
+            Q.append(d)
+        print("O vetor resultante é (", end="")
+        for i in range(0, c-1, 1):
+            R.append(P[i] - Q[i])
+            print(R[i], ",", end="")
+        R.append(P[c-1] - Q[c-1])
+        print(R[c-1], ")")
+        P = []
+        Q = []
+        R = []
+    if b>1 or b<-1:
+        print("Opção inválida")
