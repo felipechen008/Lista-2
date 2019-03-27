@@ -1,0 +1,155 @@
+#include <stdio.h>
+
+int main(){
+  char unidade[10][10]={
+    "",
+    "um",
+    "dois",
+    "tres",
+    "quartro",
+    "cinco",
+    "seis",
+    "sete",
+    "oito",
+    "nove"
+  };
+  char dezena[10][20]={
+    "",
+    "dez",
+    "vinte",
+    "trinta",
+    "quarenta",
+    "cinquenta",
+    "sessenta",
+    "setenta",
+    "oitenta",
+    "noventa"
+  };
+  char centena[10][20]={
+    "",
+    "cento",
+    "duzentos",
+    "trezentos",
+    "quatrocentos",
+    "quinhentos",
+    "seiscentos",
+    "setecentos",
+    "oitocentos",
+    "novecentos"
+  };
+  char unidadedemilhar[10][20]={
+    "",
+    "um mil",
+    "dois mil",
+    "tres mil",
+    "quartro mil",
+    "cinco mil",
+    "seis mil",
+    "sete mil",
+    "oito mil",
+    "nove mil"
+  };
+  char excecao[10][20]={
+    "dez",
+    "onze",
+    "doze",
+    "treze",
+    "catorze",
+    "quinze",
+    "dezesseis",
+    "dezessete",
+    "dezoito",
+    "dezenove"
+  };
+  char excecaomilhar[10][20]={
+    "dez mil",
+    "onze mil",
+    "doze mil",
+    "treze mil",
+    "catorze mil",
+    "quinze mil",
+    "dezesseis mil",
+    "dezessete mil",
+    "dezoito mil",
+    "dezenove mil"
+  };
+  int a;
+  scanf("%d", &a);
+  if(a<0 || a>=100000){
+    printf("Número não permitido\n");
+  }
+  else{
+    if (a==0){
+      printf("Zero\n");
+    }
+    else if(a==100){
+      printf("Cem\n");
+    }
+    else if (a>=10000 && a<20000){
+       puts (excecaomilhar[a/1000%10]);
+       puts (centena[a/100%10]);
+       if(a%100<20 && a%100>=10){
+         puts (excecao[a%100%10]);
+       }
+       else{
+         puts (dezena[a%100/10]);
+         puts (unidade[a%10]);
+       }
+    }
+    else if(a>=20000){
+      puts (dezena[a/10000]);
+      puts (unidadedemilhar[a/1000%10]);
+      printf("mil\n");
+      puts (centena[a/100%10]);
+      if(a%100<20 && a%100>=10){
+        puts (excecao[a%100%10]);
+      }
+      else{
+        puts (dezena[a%100/10]);
+        puts (unidade[a%10]);
+      }
+    }
+    else if(a<10000 && a>=2000){
+      puts (unidadedemilhar[a/1000%10]);
+      puts (centena[a/100%10]);
+      if(a%100<20 && a%100>=10){
+        puts (excecao[a%100%10]);
+      }
+      else{
+        puts (dezena[a%100/10]);
+        puts (unidade[a%10]);
+      }
+    }
+    else if(a>=1000 && a<2000){
+      printf("mil\n");
+      puts (centena[a/100%10]);
+      if(a%100<20 && a%100>=10){
+        puts (excecao[a%100%10]);
+      }
+      else{
+        puts (dezena[a%100/10]);
+        puts (unidade[a%10]);
+      }
+    }
+    else if(a<1000 && a>=101){
+      puts (centena[a/100]);
+      if(a%100<20 && a%100>=10){
+        puts (excecao[a%100%10]);
+      }
+      else{
+        puts (dezena[a%100/10]);
+        puts (unidade[a%10]);
+      }
+    }
+    else if(a<100 && a>0){
+      if(a%100<20 && a%100>=10){
+        puts (excecao[a%100%10]);
+      }
+      else{
+        puts (dezena[a%100/10]);
+        puts (unidade[a%10]);
+      }
+    }
+  }
+  return 0;
+}
